@@ -16,27 +16,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build (ad-hoc signed)
-        run: |
-          xcodebuild -project IPWatch.xcodeproj -scheme IPWatch \
-            -configuration Release -derivedDataPath .build/xcode \
-            CODE_SIGN_STYLE=Manual CODE_SIGN_IDENTITY="-" \
-            PROVISIONING_PROFILE_SPECIFIER="" build
+      - name: Build and package
+        run: ./scripts/package-adhoc.sh
 
-      - name: Package
-        run: |
-          mkdir -p dist
-          ditto .build/xcode/Build/Products/Release/IPWatch.app dist/IPWatch.app
-          ditto -c -k --sequesterRsrc --keepParent dist/IPWatch.app dist/IPWatch.app.zip
-          shasum -a 256 dist/IPWatch.app.zip | tee dist/IPWatch.app.zip.sha256
-
-      - name: Upload workflow artifact
+      - name: Upload workflow artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: IPWatch-app
+          name: IPWatch
           path: |
-            dist/IPWatch.app.zip
-            dist/IPWatch.app.zip.sha256
+            dist/*.zip
+            dist/*.sha256
           if-no-files-found: error
 
       - name: Attach to release
@@ -44,11 +33,17 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            dist/IPWatch.app.zip
-            dist/IPWatch.app.zip.sha256
+            dist/*.zip
+            dist/*.sha256
           body: |
             Menu bar app + Notification Center widget showing your external IP,
             country flag and VPN status.
+
+            ### Downloads
+
+            - `IPWatch.app.zip` — universal (Apple Silicon + Intel)
+            - `IPWatch-arm64.app.zip` — Apple Silicon only
+            - `IPWatch-amd64.app.zip` — Intel only
 
             ### Install (ad-hoc signed, not notarized)
 

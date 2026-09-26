@@ -140,7 +140,11 @@ location (`~/Applications`).
 The app and widget are ad-hoc signed — recipients do not need your Apple ID:
 
 ```bash
-make share          # -> dist/IPWatch.app.zip (app + widget, ad-hoc)
+make share
+# -> dist/IPWatch.app.zip         universal (arm64 + x86_64)
+# -> dist/IPWatch-arm64.app.zip   Apple Silicon only
+# -> dist/IPWatch-amd64.app.zip   Intel only
+#    plus a .sha256 checksum for each
 ```
 
 Recipient:
@@ -177,7 +181,8 @@ Resources/Info.plist             LSUIElement + ATS exception
 IPWatch.xcodeproj                Xcode project (committed)
 scripts/build-app.sh             build the .app bundle (SwiftPM)
 scripts/generate-xcodeproj.rb    regenerate IPWatch.xcodeproj (maintainers only)
-scripts/package-adhoc.sh         ad-hoc build + zip for sharing
+scripts/package-adhoc.sh         ad-hoc build + universal/arch zips for sharing
+scripts/package-arch.sh          thin per-architecture (arm64/amd64) zips
 ```
 
 The Xcode project is committed so it can be opened and built without any extra
