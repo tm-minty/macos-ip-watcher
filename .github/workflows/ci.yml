@@ -21,10 +21,6 @@ jobs:
     runs-on: macos-14
     steps:
       - uses: actions/checkout@v4
-      - name: Install xcodeproj
-        run: sudo gem install xcodeproj --no-document
-      - name: Generate project
-        run: ruby scripts/generate-xcodeproj.rb
       - name: Build
         run: |
           xcodebuild -project IPWatch.xcodeproj -scheme IPWatch \

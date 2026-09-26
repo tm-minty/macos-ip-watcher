@@ -33,10 +33,11 @@ No third-party dependencies — SwiftUI + `MenuBarExtra` + WidgetKit.
 ## Requirements
 
 - macOS 13+ (the widget needs macOS 14+).
-- Xcode Command Line Tools to build the app.
+- Xcode Command Line Tools to build the menu bar app.
 - Full Xcode to build the widget extension.
-- Ruby and the `xcodeproj` gem to generate the Xcode project:
-  `gem install xcodeproj`.
+
+The Xcode project (`IPWatch.xcodeproj`) is committed, so no extra tooling is
+required. Regenerating it is optional and only for maintainers (see below).
 
 ## Quick start
 
@@ -74,8 +75,8 @@ widgets, so the project includes the `IPWatchWidget` extension. It is built
 through an Xcode project (Swift Package Manager cannot produce an `.appex`).
 
 ```bash
-make xcode          # generate IPWatch.xcodeproj
-make xcode-build    # build app + widget with automatic signing
+make xcode          # open IPWatch.xcodeproj in Xcode
+make xcode-build    # build the app + widget with xcodebuild
 ```
 
 Or in Xcode: open `IPWatch.xcodeproj`, pick your Team for both targets
@@ -85,9 +86,9 @@ Install and add the widget:
 
 ```bash
 # build a signed build (set your TEAM_ID) and copy it to /Applications
-DEVELOPMENT_TEAM=<TEAM_ID> ruby scripts/generate-xcodeproj.rb
 xcodebuild -project IPWatch.xcodeproj -scheme IPWatch -configuration Release \
-  -derivedDataPath .build/xcode -allowProvisioningUpdates build
+  -derivedDataPath .build/xcode -allowProvisioningUpdates \
+  DEVELOPMENT_TEAM=<TEAM_ID> build
 cp -R .build/xcode/Build/Products/Release/IPWatch.app /Applications/
 open /Applications/IPWatch.app
 ```
@@ -173,10 +174,16 @@ Widget/                          WidgetKit extension (Xcode target)
   RefreshIntent.swift            interactive refresh button
   Info.plist, *.entitlements
 Resources/Info.plist             LSUIElement + ATS exception
+IPWatch.xcodeproj                Xcode project (committed)
 scripts/build-app.sh             build the .app bundle (SwiftPM)
-scripts/generate-xcodeproj.rb    generate IPWatch.xcodeproj (app + widget)
+scripts/generate-xcodeproj.rb    regenerate IPWatch.xcodeproj (maintainers only)
 scripts/package-adhoc.sh         ad-hoc build + zip for sharing
 ```
+
+The Xcode project is committed so it can be opened and built without any extra
+tooling. If you change the set of files in a target, edit
+`scripts/generate-xcodeproj.rb` and run `make xcode-regen` (requires
+`gem install xcodeproj`), then commit the regenerated project.
 
 ## License
 

@@ -1,0 +1,507 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0EEDA533EF4EB97DA2AD8CC6 /* SharedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2F47AB515FCC1C0C8458DB /* SharedStore.swift */; };
+		1A0D0EC2982D1C8F8843C3DD /* IPWatchWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D41028D43C98711AE2A06F7A /* IPWatchWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		22CED4BE14E0F084B1582039 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03082BC060CA5E0486B696F5 /* Cocoa.framework */; };
+		251AF5DDC8FEB135B8D5600A /* RefreshIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F14FA90C22ADD6EA626FCCB /* RefreshIntent.swift */; };
+		2C73B22F828DD3F7009D56D3 /* SharedStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A865AADC91BFF049A7A77FF0 /* SharedStore.swift */; };
+		69974B91EC6E9C01565CF289 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D930ADD0614F3F29DC887A1 /* NetworkMonitor.swift */; };
+		6D7E8B0DEC688F8123017714 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A332DEBA85D94EE28E592E /* AppState.swift */; };
+		90ACC91FDE2491BC700A156C /* IPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7815152CB8AFD0A58D35E46 /* IPService.swift */; };
+		910755085E49B77DFEA9E2D7 /* IPWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 544917D7FA5CC8179B9FD091 /* IPWatchApp.swift */; };
+		A73EF23CAD8A0BDA93563575 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B4289F7AAD648B7029FB32 /* Models.swift */; };
+		AFC4D9A48812F829F078BA03 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03082BC060CA5E0486B696F5 /* Cocoa.framework */; };
+		CD3652048A6D460C4D2252DC /* IPWatchWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D849880D1A52EC0D94B4BE /* IPWatchWidgetBundle.swift */; };
+		D325C45A984691A47161EF3A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1720DC2ECC7DCF3EA4EBA965 /* ContentView.swift */; };
+		DEA3974ACD980993F37D965E /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A5B86D1CDA7F0738A8422B /* NetworkMonitor.swift */; };
+		E4612B311BF2CB1458268A9C /* IPWatchWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E49D7A3462F32B90488E6F9 /* IPWatchWidget.swift */; };
+		F4A51FB3FF6E523CB6D50AF5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B2FDC3793DF9834691D337 /* Models.swift */; };
+		FCBE48985F0966A94805B67B /* IPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B529E9AA3CE4236A1B90225 /* IPService.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A07B93ACBBD59C3122F6314B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B0B0FDB97574C66A00D6EE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F3B67F5795031EB65B1B659D;
+			remoteInfo = IPWatchWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		731668237CD8526ACF62D9F0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1A0D0EC2982D1C8F8843C3DD /* IPWatchWidget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		03082BC060CA5E0486B696F5 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		0B529E9AA3CE4236A1B90225 /* IPService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IPService.swift; sourceTree = "<group>"; };
+		14A5B86D1CDA7F0738A8422B /* NetworkMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		1720DC2ECC7DCF3EA4EBA965 /* ContentView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		27B2FDC3793DF9834691D337 /* Models.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		2D930ADD0614F3F29DC887A1 /* NetworkMonitor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		544917D7FA5CC8179B9FD091 /* IPWatchApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IPWatchApp.swift; sourceTree = "<group>"; };
+		5E49D7A3462F32B90488E6F9 /* IPWatchWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IPWatchWidget.swift; sourceTree = "<group>"; };
+		63B4289F7AAD648B7029FB32 /* Models.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		64A332DEBA85D94EE28E592E /* AppState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		98D849880D1A52EC0D94B4BE /* IPWatchWidgetBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IPWatchWidgetBundle.swift; sourceTree = "<group>"; };
+		9F14FA90C22ADD6EA626FCCB /* RefreshIntent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RefreshIntent.swift; sourceTree = "<group>"; };
+		A865AADC91BFF049A7A77FF0 /* SharedStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SharedStore.swift; sourceTree = "<group>"; };
+		B391EDFF96105F0B3CD0B8D4 /* IPWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IPWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D41028D43C98711AE2A06F7A /* IPWatchWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IPWatchWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE2F47AB515FCC1C0C8458DB /* SharedStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = SharedStore.swift; sourceTree = "<group>"; };
+		F7815152CB8AFD0A58D35E46 /* IPService.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IPService.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5087C3689AD38CC9FC83D278 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFC4D9A48812F829F078BA03 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF9B66933ABF9EEEA67D0353 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22CED4BE14E0F084B1582039 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		138945D878AA498C846D8D6C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC123B9E2FD2F87C455C1BD6 /* OS X */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		25E4906BFE36B51ED4B1813A /* IPWatch */ = {
+			isa = PBXGroup;
+			children = (
+				544917D7FA5CC8179B9FD091 /* IPWatchApp.swift */,
+				64A332DEBA85D94EE28E592E /* AppState.swift */,
+				0B529E9AA3CE4236A1B90225 /* IPService.swift */,
+				63B4289F7AAD648B7029FB32 /* Models.swift */,
+				14A5B86D1CDA7F0738A8422B /* NetworkMonitor.swift */,
+				A865AADC91BFF049A7A77FF0 /* SharedStore.swift */,
+				1720DC2ECC7DCF3EA4EBA965 /* ContentView.swift */,
+				F7815152CB8AFD0A58D35E46 /* IPService.swift */,
+				27B2FDC3793DF9834691D337 /* Models.swift */,
+				2D930ADD0614F3F29DC887A1 /* NetworkMonitor.swift */,
+				EE2F47AB515FCC1C0C8458DB /* SharedStore.swift */,
+			);
+			name = IPWatch;
+			path = Sources/IPWatch;
+			sourceTree = "<group>";
+		};
+		2BBDA49A4D8A34E75525CDD4 /* IPWatchWidget */ = {
+			isa = PBXGroup;
+			children = (
+				98D849880D1A52EC0D94B4BE /* IPWatchWidgetBundle.swift */,
+				5E49D7A3462F32B90488E6F9 /* IPWatchWidget.swift */,
+				9F14FA90C22ADD6EA626FCCB /* RefreshIntent.swift */,
+			);
+			name = IPWatchWidget;
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		44B5E2046C64399ED246C654 = {
+			isa = PBXGroup;
+			children = (
+				70F84632D1872AC641A3F562 /* Products */,
+				138945D878AA498C846D8D6C /* Frameworks */,
+				25E4906BFE36B51ED4B1813A /* IPWatch */,
+				2BBDA49A4D8A34E75525CDD4 /* IPWatchWidget */,
+			);
+			sourceTree = "<group>";
+		};
+		70F84632D1872AC641A3F562 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B391EDFF96105F0B3CD0B8D4 /* IPWatch.app */,
+				D41028D43C98711AE2A06F7A /* IPWatchWidget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC123B9E2FD2F87C455C1BD6 /* OS X */ = {
+			isa = PBXGroup;
+			children = (
+				03082BC060CA5E0486B696F5 /* Cocoa.framework */,
+			);
+			name = "OS X";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F3B67F5795031EB65B1B659D /* IPWatchWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49FDF50F80BB62CC310F3C34 /* Build configuration list for PBXNativeTarget "IPWatchWidget" */;
+			buildPhases = (
+				9E419034B0AF25DB5F37CDDD /* Sources */,
+				AF9B66933ABF9EEEA67D0353 /* Frameworks */,
+				C18922406E1F39F028DB7AFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IPWatchWidget;
+			productName = IPWatchWidget;
+			productReference = D41028D43C98711AE2A06F7A /* IPWatchWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		F8988C82F2720B214E9D5D41 /* IPWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 55A4B841B274047B9F75FA1D /* Build configuration list for PBXNativeTarget "IPWatch" */;
+			buildPhases = (
+				8B7B88AB9D5B6E157B1B96DA /* Sources */,
+				5087C3689AD38CC9FC83D278 /* Frameworks */,
+				6C6BEB566AA024534C1FDB04 /* Resources */,
+				731668237CD8526ACF62D9F0 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3273ACD9C7C7FC2261E27F0 /* PBXTargetDependency */,
+			);
+			name = IPWatch;
+			productName = IPWatch;
+			productReference = B391EDFF96105F0B3CD0B8D4 /* IPWatch.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B0B0FDB97574C66A00D6EE0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+			};
+			buildConfigurationList = 5C3A33AE2AE2CFAA642C76D7 /* Build configuration list for PBXProject "IPWatch" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 44B5E2046C64399ED246C654;
+			productRefGroup = 70F84632D1872AC641A3F562 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F8988C82F2720B214E9D5D41 /* IPWatch */,
+				F3B67F5795031EB65B1B659D /* IPWatchWidget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6C6BEB566AA024534C1FDB04 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C18922406E1F39F028DB7AFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B7B88AB9D5B6E157B1B96DA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				910755085E49B77DFEA9E2D7 /* IPWatchApp.swift in Sources */,
+				6D7E8B0DEC688F8123017714 /* AppState.swift in Sources */,
+				FCBE48985F0966A94805B67B /* IPService.swift in Sources */,
+				A73EF23CAD8A0BDA93563575 /* Models.swift in Sources */,
+				DEA3974ACD980993F37D965E /* NetworkMonitor.swift in Sources */,
+				2C73B22F828DD3F7009D56D3 /* SharedStore.swift in Sources */,
+				D325C45A984691A47161EF3A /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E419034B0AF25DB5F37CDDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90ACC91FDE2491BC700A156C /* IPService.swift in Sources */,
+				F4A51FB3FF6E523CB6D50AF5 /* Models.swift in Sources */,
+				69974B91EC6E9C01565CF289 /* NetworkMonitor.swift in Sources */,
+				0EEDA533EF4EB97DA2AD8CC6 /* SharedStore.swift in Sources */,
+				CD3652048A6D460C4D2252DC /* IPWatchWidgetBundle.swift in Sources */,
+				E4612B311BF2CB1458268A9C /* IPWatchWidget.swift in Sources */,
+				251AF5DDC8FEB135B8D5600A /* RefreshIntent.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D3273ACD9C7C7FC2261E27F0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = IPWatchWidget;
+			target = F3B67F5795031EB65B1B659D /* IPWatchWidget */;
+			targetProxy = A07B93ACBBD59C3122F6314B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		057D5B17CC4E297FB2147195 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.ipwatch;
+				PRODUCT_NAME = IPWatch;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		18655AB1788DB6D1B503B186 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		654C80611ADD63AF27C0E2A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Widget/IPWatchWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Widget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.ipwatch.widget;
+				PRODUCT_NAME = IPWatchWidget;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		7174289E709553479BEB4CF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.ipwatch;
+				PRODUCT_NAME = IPWatch;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		854970310B780D174C63DE94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = Widget/IPWatchWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = Widget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../../../../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.ipwatch.widget;
+				PRODUCT_NAME = IPWatchWidget;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F4739A01DF0EE52564F1276A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		49FDF50F80BB62CC310F3C34 /* Build configuration list for PBXNativeTarget "IPWatchWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				854970310B780D174C63DE94 /* Release */,
+				654C80611ADD63AF27C0E2A6 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		55A4B841B274047B9F75FA1D /* Build configuration list for PBXNativeTarget "IPWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7174289E709553479BEB4CF2 /* Release */,
+				057D5B17CC4E297FB2147195 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5C3A33AE2AE2CFAA642C76D7 /* Build configuration list for PBXProject "IPWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F4739A01DF0EE52564F1276A /* Debug */,
+				18655AB1788DB6D1B503B186 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8B0B0FDB97574C66A00D6EE0 /* Project object */;
+}

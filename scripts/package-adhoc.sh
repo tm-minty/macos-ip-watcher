@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Builds the app + widget extension, ad-hoc signs them (no Apple account
-# required for the recipient) and produces dist/IPWatch.app.zip for sharing.
+# Builds the app + widget extension from the committed Xcode project, ad-hoc
+# signs them (no Apple account required) and produces dist/IPWatch.app.zip.
+#
+# No Ruby / xcodeproj gem needed: IPWatch.xcodeproj is committed. Regenerate it
+# with `make xcode-regen` only if you change the target file lists.
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 APP_NAME="IPWatch"
 DERIVED="$ROOT/.build/xcode-adhoc"
 APP="$DERIVED/Build/Products/Release/$APP_NAME.app"
-
-echo "==> Generating Xcode project…"
-ruby "$ROOT/scripts/generate-xcodeproj.rb"
 
 echo "==> Building (ad-hoc signed)…"
 xcodebuild -project "$ROOT/IPWatch.xcodeproj" -scheme "$APP_NAME" -configuration Release \

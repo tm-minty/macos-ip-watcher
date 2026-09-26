@@ -1,6 +1,6 @@
 .build/
 dist/
 .swiftpm/
-IPWatch.xcodeproj/
 xcuserdata/
+*.xcuserstate
 .DS_Store
