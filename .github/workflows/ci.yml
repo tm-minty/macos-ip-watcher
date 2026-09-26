@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  spm:
+    name: Build (SwiftPM)
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Swift version
+        run: swift --version
+      - name: Build
+        run: swift build -c release
+
+  xcode:
+    name: Build (Xcode app + widget)
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install xcodeproj
+        run: sudo gem install xcodeproj --no-document
+      - name: Generate project
+        run: ruby scripts/generate-xcodeproj.rb
+      - name: Build
+        run: |
+          xcodebuild -project IPWatch.xcodeproj -scheme IPWatch \
+            -configuration Release -derivedDataPath .build/xcode \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO build
