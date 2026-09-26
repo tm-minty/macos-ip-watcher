@@ -5,58 +5,55 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![CI](https://github.com/tm-minty/macos-ip-watcher/actions/workflows/ci.yml/badge.svg)](https://github.com/tm-minty/macos-ip-watcher/actions/workflows/ci.yml)
 
-**EN** — IPWatch is a native macOS menu bar app and Notification Center widget
-that shows your external IP address, the country flag and whether a VPN/proxy is
-active. No third-party dependencies, SwiftUI + `MenuBarExtra` + WidgetKit.
+IPWatch is a native macOS menu bar app and Notification Center widget that shows
+your external IP address, the country flag and whether a VPN/proxy is active.
+No third-party dependencies — SwiftUI + `MenuBarExtra` + WidgetKit.
 
-**RU** — IPWatch — нативное приложение в строке меню macOS и виджет для Центра
-уведомлений: внешний IP, флаг страны и статус VPN.
+## Features
 
-## Возможности
+- Country flag and external IP right in the menu bar (each part can be toggled).
+- Popover details: country/city, region, timezone, ISP, organization, ASN, the
+  active network interface and tunnel interfaces.
+- **VPN status** — compares the current IP/country against a saved "home" network
+  and independently inspects network interfaces:
+  - `Direct connection` — matches the home IP, no tunnel;
+  - `IP changed (same country)` — different IP, same country;
+  - `Tunnel active (utunN)` — a tunnel interface is up (VPN/proxy) even if the IP has not changed yet;
+  - `VPN / proxy likely` — the country changed (a strong VPN/proxy signal).
+- **Event-driven updates**: besides the timer, the IP is re-fetched immediately
+  when the network configuration changes — VPN connect/disconnect, route changes,
+  Wi-Fi switching, etc. (the `Refresh on VPN / network change` toggle).
+- **Notification Center widget** (click the clock): flag, IP, country, ISP, VPN
+  status and a refresh button.
+- Buttons: refresh, set the current network as home, copy the IP, open details in
+  the browser.
+- Settings: refresh interval, what to show in the menu bar, launch at login,
+  refresh on network events.
 
-- Флаг страны и внешний IP прямо в строке меню (каждую часть можно отключить).
-- В поповере: страна/город, регион, таймзона, провайдер (ISP), организация, ASN,
-  активный сетевой интерфейс и туннельные интерфейсы.
-- **Статус VPN** — сравнение текущего IP/страны с сохранённой «домашней» сетью
-  плюс независимая проверка сетевых интерфейсов:
-  - `Direct connection` — совпадает с домашним IP, туннеля нет;
-  - `IP changed (same country)` — IP другой, страна та же;
-  - `Tunnel active (utunN)` — туннельный интерфейс поднят (VPN/прокси), даже если IP пока не сменился;
-  - `VPN / proxy likely` — страна сменилась (сильный признак VPN/прокси).
-- **Событийное обновление**: помимо таймера, IP перезапрашивается сразу при
-  изменении сетевой конфигурации — подключение/отключение VPN, смена маршрута,
-  переход между Wi-Fi и т.д. (тумблер `Refresh on VPN / network change`).
-- **Виджет для Центра уведомлений** (клик по часам): флаг, IP, страна, ISP, статус
-  VPN и кнопка обновления.
-- Кнопки: обновить, сохранить текущую сеть как домашнюю, скопировать IP, открыть
-  детали в браузере.
-- Настройки: интервал автообновления, что показывать в строке меню, автозапуск
-  при входе, обновление по событиям сети.
+## Requirements
 
-## Требования
-
-- macOS 13+ (виджет — macOS 14+).
-- Xcode Command Line Tools для сборки приложения.
-- Полный Xcode для сборки widget-расширения.
-- Ruby и гем `xcodeproj` для генерации Xcode-проекта:
+- macOS 13+ (the widget needs macOS 14+).
+- Xcode Command Line Tools to build the app.
+- Full Xcode to build the widget extension.
+- Ruby and the `xcodeproj` gem to generate the Xcode project:
   `gem install xcodeproj`.
 
-## Быстрый старт
+## Quick start
 
 ```bash
 git clone https://github.com/tm-minty/macos-ip-watcher.git
 cd macos-ip-watcher
 
-# меню-бар приложение (без виджета)
+# menu bar app (without the widget)
 make app
 open dist/IPWatch.app
 ```
 
-Приложение появится в строке меню (иконки в Dock не будет). Откройте поповер и
-нажмите **Set as home**, чтобы зафиксировать домашнюю сеть — после этого проект
-начнёт сигнализировать о смене IP/страны.
+The app appears in the menu bar (there is no Dock icon). Open the popover and
+click **Set as home** to remember your home network — after that the app will
+signal IP/country changes.
 
-Проверка сети из терминала:
+Self-check from the terminal:
 
 ```bash
 dist/IPWatch.app/Contents/MacOS/IPWatch --probe
@@ -64,30 +61,30 @@ dist/IPWatch.app/Contents/MacOS/IPWatch --probe
 # -> network: tunnel utun4 up | primary=utun4 | vpn=utun4
 ```
 
-Запуск без упаковки в `.app` (для разработки):
+Run without packaging into a `.app` (for development):
 
 ```bash
 make run
 ```
 
-## Виджет в Центре уведомлений (клик по часам)
+## Notification Center widget (click the clock)
 
-Клик по часам открывает Центр уведомлений, куда добавляются только
-WidgetKit-виджеты, поэтому в проекте есть extension `IPWatchWidget`. Он собирается
-через Xcode-проект (Swift Package Manager `.appex` не собирает).
+Clicking the clock opens Notification Center, which only accepts WidgetKit
+widgets, so the project includes the `IPWatchWidget` extension. It is built
+through an Xcode project (Swift Package Manager cannot produce an `.appex`).
 
 ```bash
-make xcode          # сгенерировать IPWatch.xcodeproj
-make xcode-build    # собрать app + widget с автоматической подписью
+make xcode          # generate IPWatch.xcodeproj
+make xcode-build    # build app + widget with automatic signing
 ```
 
-Либо в Xcode: откройте `IPWatch.xcodeproj`, в обоих таргетах (**IPWatch** и
-**IPWatchWidget**) выберите свою Team и нажмите Run.
+Or in Xcode: open `IPWatch.xcodeproj`, pick your Team for both targets
+(**IPWatch** and **IPWatchWidget**) and press Run.
 
-Установка и добавление:
+Install and add the widget:
 
 ```bash
-# собрать подписанный билд (укажите свой TEAM_ID) и положить в /Applications
+# build a signed build (set your TEAM_ID) and copy it to /Applications
 DEVELOPMENT_TEAM=<TEAM_ID> ruby scripts/generate-xcodeproj.rb
 xcodebuild -project IPWatch.xcodeproj -scheme IPWatch -configuration Release \
   -derivedDataPath .build/xcode -allowProvisioningUpdates build
@@ -95,92 +92,92 @@ cp -R .build/xcode/Build/Products/Release/IPWatch.app /Applications/
 open /Applications/IPWatch.app
 ```
 
-Затем **клик по часам → «Изменить виджеты» → найти `External IP` → добавить в
-Центр уведомлений**. Виджет появляется в галерее после того, как приложение хотя
-бы раз запущено из `/Applications`.
+Then **click the clock → "Edit Widgets" → find `External IP` → add it to
+Notification Center**. The widget appears in the gallery once the app has been
+launched from `/Applications` at least once.
 
-Особенности виджета:
+Widget notes:
 
-- Обновление регулирует система (обычно не чаще ~15 минут); кнопка обновления
-  форсирует перезапрос.
-- Сравнение с «домашней» сетью между приложением и виджетом работает через
-  App Group `group.com.local.ipwatch`. Включите capability **App Groups** у обоих
-  таргетов и подпишите одной командой (нужен платный Apple Developer; Personal
-  Team может не поддерживать App Groups). Без App Group виджет тоже определяет
-  туннель по сетевым интерфейсам, но не сравнивает с домашней сетью.
+- The system controls refresh cadence (usually no more than every ~15 minutes);
+  the refresh button forces an immediate re-fetch.
+- Sharing the "home" network between the app and the widget uses the App Group
+  `group.com.local.ipwatch`. Enable the **App Groups** capability on both targets
+  and sign them together (this requires a paid Apple Developer account; a Personal
+  Team may not support App Groups). Without the App Group the widget still detects
+  a tunnel from the network interfaces, but does not compare against the home
+  network.
 
-## Как определяется VPN
+## How VPN detection works
 
-Два независимых сигнала:
+Two independent signals:
 
-1. **По внешнему IP** — сравнение страны/IP с сохранённой домашней сетью.
-2. **По сетевой конфигурации** — читается системный dynamic store
-   (`State:/Network/Global/IPv4` → `PrimaryInterface`) и список интерфейсов через
-   `getifaddrs`. Если default-route или активно используемый интерфейс имеет имя
-   вида `utun*/ppp*/ipsec*/tun*/tap*/wg*`, туннель считается активным.
+1. **By external IP** — comparing the country/IP against the saved home network.
+2. **By network configuration** — reading the system dynamic store
+   (`State:/Network/Global/IPv4` → `PrimaryInterface`) and the interface list via
+   `getifaddrs`. If the default route or the actively used interface is named like
+   `utun*/ppp*/ipsec*/tun*/tap*/wg*`, a tunnel is considered active.
 
-События приходят из двух источников: `SCDynamicStore` (уведомления системной
-конфигурации) и `NWPathMonitor` (Network framework). Изменения дебаунсятся
-(~1.2 c) и запускают немедленный перезапрос IP, не дожидаясь таймера.
+Events come from two sources: `SCDynamicStore` (system configuration
+notifications) and `NWPathMonitor` (Network framework). Changes are debounced
+(~1.2 s) and trigger an immediate IP re-fetch without waiting for the timer.
 
-## Источники данных
+## Data sources
 
-1. **ip-api.com** (основной) — бесплатный тариф отдаёт данные только по HTTP,
-   поэтому в `Resources/Info.plist` добавлено ATS-исключение для домена
-   `ip-api.com`.
-2. **ipwho.is** (HTTPS) — автоматический резерв, если основной источник недоступен.
+1. **ip-api.com** (primary) — the free tier serves data over HTTP only, so an ATS
+   exception for the `ip-api.com` domain is added in `Resources/Info.plist`.
+2. **ipwho.is** (HTTPS) — automatic fallback when the primary source is
+   unavailable.
 
-## Автозапуск
+## Launch at login
 
-Включите тумблер **Launch at login** в поповере — используется `SMAppService`.
-Надёжнее всего работает, если `.app` лежит в `/Applications` или в стабильном
-месте (`~/Applications`).
+Turn on the **Launch at login** toggle in the popover — it uses `SMAppService`.
+It works most reliably when the `.app` lives in `/Applications` or another stable
+location (`~/Applications`).
 
-## Распространение
+## Distribution
 
-Приложение и виджет подписываются ad-hoc — получателям не нужен ваш Apple ID:
+The app and widget are ad-hoc signed — recipients do not need your Apple ID:
 
 ```bash
 make share          # -> dist/IPWatch.app.zip (app + widget, ad-hoc)
 ```
 
-Получатель:
+Recipient:
 
 ```bash
 unzip IPWatch.app.zip
-xattr -dr com.apple.quarantine IPWatch.app   # снять карантин ad-hoc подписи
+xattr -dr com.apple.quarantine IPWatch.app   # clear the ad-hoc quarantine flag
 open IPWatch.app
 ```
 
-Если macOS блокирует запуск: **Системные настройки → Конфиденциальность и
-безопасность → «Всё равно открыть»**.
+If macOS still blocks it: **System Settings → Privacy & Security → "Open Anyway"**.
 
-Для публичной раздачи без предупреждений Gatekeeper нужен сертификат
-**Developer ID Application** и нотаризация (`xcodebuild archive` → `notarytool
-submit` → `stapler staple`). Песочница обязательна только для Mac App Store.
+Warning-free public distribution requires a **Developer ID Application**
+certificate and notarization (`xcodebuild archive` → `notarytool submit` →
+`stapler staple`). Sandboxing is only required for the Mac App Store.
 
-## Структура
+## Project structure
 
 ```
-Sources/IPWatch/                 меню-бар приложение (SwiftPM target)
-  IPWatchApp.swift               @main, MenuBarExtra, режим --probe
-  AppState.swift                 состояние, таймер, события сети, автозапуск
-  NetworkMonitor.swift           мониторинг VPN/маршрутов (SCDynamicStore + NWPathMonitor)
-  IPService.swift                запрос к ip-api.com с фолбэком на ipwho.is
-  Models.swift                   модель IPInfo, эмодзи-флаг, статус VPN
-  SharedStore.swift              общее хранилище (App Group) для app + widget
-  ContentView.swift              интерфейс поповера
+Sources/IPWatch/                 menu bar app (SwiftPM target)
+  IPWatchApp.swift               @main, MenuBarExtra, --probe mode
+  AppState.swift                 state, timer, network events, launch at login
+  NetworkMonitor.swift           VPN/route monitoring (SCDynamicStore + NWPathMonitor)
+  IPService.swift                ip-api.com request with ipwho.is fallback
+  Models.swift                   IPInfo model, emoji flag, VPN status
+  SharedStore.swift              shared storage (App Group) for app + widget
+  ContentView.swift              popover UI
 Widget/                          WidgetKit extension (Xcode target)
   IPWatchWidgetBundle.swift      @main WidgetBundle
-  IPWatchWidget.swift            виджет, timeline provider, вёрстка
-  RefreshIntent.swift            interactive-кнопка обновления
+  IPWatchWidget.swift            widget, timeline provider, layout
+  RefreshIntent.swift            interactive refresh button
   Info.plist, *.entitlements
-Resources/Info.plist             LSUIElement + ATS-исключение
-scripts/build-app.sh             сборка .app-бандла (SwiftPM)
-scripts/generate-xcodeproj.rb    генерация IPWatch.xcodeproj (app + widget)
-scripts/package-adhoc.sh         ad-hoc сборка + zip для раздачи
+Resources/Info.plist             LSUIElement + ATS exception
+scripts/build-app.sh             build the .app bundle (SwiftPM)
+scripts/generate-xcodeproj.rb    generate IPWatch.xcodeproj (app + widget)
+scripts/package-adhoc.sh         ad-hoc build + zip for sharing
 ```
 
-## Лицензия
+## License
 
 [MIT](LICENSE) © 2026 Timur Mingaliev
