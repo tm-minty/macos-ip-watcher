@@ -9,6 +9,20 @@ IPWatch is a native macOS menu bar app and Notification Center widget that shows
 your external IP address, the country flag and whether a VPN/proxy is active.
 No third-party dependencies — SwiftUI + `MenuBarExtra` + WidgetKit.
 
+## Screenshots
+
+| Menu bar popover — VPN/proxy detected | Popover — direct connection |
+| :---: | :---: |
+| ![Popover with VPN detected](docs/screenshots/popover-vpn.png) | ![Popover with a direct connection](docs/screenshots/popover-direct.png) |
+
+| Notification Center widget — medium | Widget — small |
+| :---: | :---: |
+| ![Medium widget](docs/screenshots/widget-medium.png) | ![Small widget](docs/screenshots/widget-small.png) |
+
+All screenshots use mock data from the RFC 5737 documentation ranges
+(`203.0.113.0/24`, `198.51.100.0/24`) — no real IP addresses. Regenerate them
+with `make screenshots`.
+
 ## Features
 
 - Country flag and external IP right in the menu bar (each part can be toggled).
@@ -183,6 +197,9 @@ scripts/build-app.sh             build the .app bundle (SwiftPM)
 scripts/generate-xcodeproj.rb    regenerate IPWatch.xcodeproj (maintainers only)
 scripts/package-adhoc.sh         ad-hoc build + universal/arch zips for sharing
 scripts/package-arch.sh          thin per-architecture (arm64/amd64) zips
+scripts/make-screenshots.sh      render docs screenshots with mock data
+tools/Snapshot.swift             off-screen screenshot generator
+docs/screenshots/                screenshots used by this README
 ```
 
 The Xcode project is committed so it can be opened and built without any extra

@@ -96,8 +96,11 @@ struct IPWatchWidget: Widget {
 }
 
 struct IPWatchWidgetEntryView: View {
-    @Environment(\.widgetFamily) private var family
+    @Environment(\.widgetFamily) private var environmentFamily
     let entry: IPEntry
+    var familyOverride: WidgetFamily? = nil
+
+    private var family: WidgetFamily { familyOverride ?? environmentFamily }
 
     var body: some View {
         switch family {

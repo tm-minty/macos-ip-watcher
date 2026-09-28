@@ -1,6 +1,6 @@
 APP := IPWatch
 
-.PHONY: build run app app-universal share xcode xcode-build xcode-regen clean
+.PHONY: build run app app-universal share xcode xcode-build xcode-regen screenshots clean
 
 build:
 	swift build -c release
@@ -27,6 +27,9 @@ xcode-build:
 
 xcode-regen:
 	ruby scripts/generate-xcodeproj.rb
+
+screenshots:
+	./scripts/make-screenshots.sh
 
 clean:
 	rm -rf .build dist

@@ -95,6 +95,24 @@ final class AppState: ObservableObject {
         didLoad = true
     }
 
+    /// Fixed-data initializer for previews and the screenshot tool. It performs
+    /// no networking, timers or persistence and never touches the user's data.
+    init(previewCurrent: IPInfo?, home: IPInfo?, primaryInterface: String?,
+         vpnInterfaces: [String], lastUpdated: Date?,
+         showIP: Bool = true, showFlag: Bool = true) {
+        refreshInterval = .fiveMinutes
+        showIPInMenuBar = showIP
+        showFlagInMenuBar = showFlag
+        refreshOnNetworkChange = true
+        launchAtLogin = false
+        current = previewCurrent
+        self.home = home
+        self.primaryInterface = primaryInterface
+        self.vpnInterfaces = vpnInterfaces
+        self.lastUpdated = lastUpdated
+        didLoad = false
+    }
+
     // MARK: - Derived state
 
     var vpnStatus: VPNStatus {
